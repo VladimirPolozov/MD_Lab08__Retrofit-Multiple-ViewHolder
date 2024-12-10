@@ -13,11 +13,11 @@ import com.bumptech.glide.Glide
 class Adapter(diffCallback: DiffCallback) : ListAdapter<WeatherList, Adapter.ViewHolder>(diffCallback) {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("DefaultLocale")
-        fun bind(weatherWrapper: WeatherList) {
-            itemView.findViewById<TextView>(R.id.datetime).text = weatherWrapper.dt_txt
-            val tempCel = weatherWrapper.main.temp - 273.15
+        fun bind(weatherList: WeatherList) {
+            itemView.findViewById<TextView>(R.id.datetime).text = weatherList.dt_txt
+            val tempCel = weatherList.main.temp - 273.15
             itemView.findViewById<TextView>(R.id.temp).text = String.format("%.2f °C", tempCel)
-            val iconUrl = "https://openweathermap.org/img/wn/${weatherWrapper.weather[0].icon}@2x.png"
+            val iconUrl = "https://openweathermap.org/img/wn/${weatherList.weather[0].icon}@2x.png"
             Glide.with(itemView.context)
                 .load(iconUrl)
                 .into(itemView.findViewById(R.id.temp_icon))
