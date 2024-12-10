@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         val rView: RecyclerView = findViewById(R.id.rView)
-        val adapter: Adapter = Adapter(DiffCallback())
+        val adapter = Adapter(DiffCallback())
 
         setSupportActionBar(toolbar)
         rView.adapter = adapter
